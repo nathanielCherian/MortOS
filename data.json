@@ -1,0 +1,15 @@
+[
+  {
+    "username":"meme",
+    "password":"lord",
+    "MOTD":"hello!"
+  },
+
+  {
+    "username":"nathan",
+    "password":"123",
+    "MOTD":"nathan says hello"
+  }
+
+
+]
