@@ -1,15 +1,19 @@
 [
   {
-    "username":"meme",
-    "password":"lord",
-    "MOTD":"hello!"
+    "account": {
+      "username":"meme",
+      "password":"lord",
+      "MOTD":"hello!"
+    }
   },
 
-  {
-    "username":"nathan",
-    "password":"123",
-    "MOTD":"nathan says hello"
-  }
 
+  {
+    "account": {
+      "username":"nathan",
+      "password":"123",
+      "MOTD":"nathan says hello"
+    }
+  }
 
 ]

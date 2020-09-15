@@ -1,21 +1,23 @@
 public class Account {
   String username;
   String password;
-  
-  String[] userlist = {"meme", "dank"};
-  String[] passlist = {"lord", "meme"};
-  
+
+  String[] userlist = {"nathanc", "anthonyv", "u"};
+  String[] passlist = {"codingrocks", "101beast", "p"};
+
   public Account (String user, String pass) {
     username = user;
     password = pass;
   }
 
   public Boolean checkAccount () {
-    int userIndex;
     int i;
-    
 
-    for (i = 0; i < userlist.length; i++) { //its .length i looked it up okay
+    if (username.equals("Guest")) {
+      return true;
+    }
+
+    for (i = 0; i < userlist.length; i++) {
       if (userlist[i].equals(username)) { 
         if(passlist[i].equals(password))
           return true;

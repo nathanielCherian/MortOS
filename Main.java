@@ -1,11 +1,23 @@
 
 /* Scrum Group 1 */
 import java.util.*;
+import java.lang.Math;
+import java.util.Random;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+ 
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
 
 class Main {
   public static Scanner scanner;
   public static Boolean login;
   public static Account account;
+  public static Random rand = new Random(); //instance of random class
 
   public static void main(String[] args) {
 
@@ -22,20 +34,41 @@ class Main {
     while (login) {
       System.out.print("MortOS> ");
       scanner = new Scanner(System.in);
-      String input = scanner.next();
+      String input = scanner.nextLine();
+
+      int int_random = rand.nextInt(100);
+      if (int_random <= 10){
+        System.out.println("HEY HEY HEY!");
+      }else if(int_random <= 30){
+        System.out.println("CODE CODE CODE!");
+
+      }
 
       switch (input) {
 
       case "add":
-        System.out.println("add code here");
+        add_command();
         break;
 
+      case "pythag":
+        pythag_command();
+        break;
+
+      case "cls":
+        System.out.print("\u001B[2J" + "\u001B[0;0H");  
+        break;
+
+      case "anim":
+        Anim.main(null);
+        break;
       case "exit":
         login = false;
         System.out.println("bye!");
         break;
+
       case "":
         break;
+
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
@@ -66,19 +99,58 @@ class Main {
 
   }
 
-  public static void printName(String name) {
+  public static void add_command() {
+
+    try{
+    
+    System.out.print("enter num1: ");
+    Float num1 = scanner.nextFloat();
+
+    System.out.print("enter num2: ");
+    Float num2 = scanner.nextFloat();
+
+    Float sum = num1 + num2;
+
+    System.out.println(num1.toString() + " + " + num2.toString() + " = " + sum.toString());
+    } catch(Exception e){
+      System.out.println("ENTER A NUMBER!");
+    }
 
   }
 
-  public Account login() {
+  public static void pythag_command() {
+
+    try{
+
+      System.out.print("enter side1: ");
+      Float side1 = scanner.nextFloat();
+
+      System.out.print("enter side2: ");
+      Float side2 = scanner.nextFloat();  
+
+      Double pythag = Math.sqrt((side1*side1) + (side2*side2));
+
+      System.out.println("side3: " + pythag.toString());
+
+
+    } catch(Exception e){
+      System.out.println("ENTER A NUMBER!");
+    }
+
+  }
+
+  public static Account login() {
+    scanner = new Scanner(System.in);
+
     Account acc = new Account("filler", "null");
     
     System.out.print("Username: "); // here
     acc.username = scanner.nextLine();
-
-    System.out.print("Password: ");
-    acc.password = scanner.nextLine();
-
+    
+    if (!acc.username.equals("Guest")) {
+      System.out.print("Password: ");
+      acc.password = scanner.nextLine();
+    }
     return acc;
   }
 
