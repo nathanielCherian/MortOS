@@ -7,6 +7,7 @@ import java.util.Random;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.File;
  
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
@@ -69,6 +70,12 @@ class Main {
       case "":
         break;
 
+      case "file":
+        if (!account.guest) {
+          readFile();
+        }
+        
+        break;
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
@@ -156,6 +163,24 @@ class Main {
       acc.password = scanner.nextLine();
     }
     return acc;
+  }
+
+  public static void readFile() {
+    try {
+
+      File f = new File("motd.txt");
+      Scanner reader = new Scanner(f);
+
+      while (reader.hasNextLine()) {
+        String data = reader.nextLine();
+        System.out.println(data);
+      }
+
+      reader.close();
+
+    } catch (FileNotFoundException e) {
+      System.out.println("An error has occurred");
+    }
   }
 
 } // end class
