@@ -146,6 +146,10 @@ class Main {
     
     System.out.print("Username: "); // here
     acc.username = scanner.nextLine();
+
+    if (acc.username.equals("Guest")) {
+      acc.guest = true;
+    }
     
     if (!acc.guest) {
       System.out.print("Password: ");

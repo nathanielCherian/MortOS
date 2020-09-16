@@ -15,8 +15,7 @@ public class Account {
   public Boolean checkAccount () {
     int i;
 
-    if (username.equals("Guest")) {
-      guest = true;
+    if (guest) {
       return true;
     }
 
