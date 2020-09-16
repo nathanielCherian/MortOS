@@ -208,7 +208,13 @@ class Main {
         FileWriter w = new FileWriter(fileName);
         System.out.print("What would you like to write to this file? ");
         String line = scanner.nextLine();
-        w.write(line);
+
+        String writing = "";
+        Scanner r = new Scanner(fileName);
+        while (r.hasNextLine()) {
+          writing += r.nextLine() + "\n";
+        }
+        w.write(writing + line);
         w.close();
 
       } catch (IOException e) {
@@ -221,9 +227,9 @@ class Main {
 
   public static String getFile() {
     String fileName;
-    scanner = new Scanner(System.in);
+    Scanner r = new Scanner(System.in);
     System.out.print("Enter a file name: ");
-    fileName = scanner.nextLine();
+    fileName = r.nextLine();
     return fileName;
   }
 
