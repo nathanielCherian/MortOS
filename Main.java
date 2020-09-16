@@ -166,9 +166,14 @@ class Main {
   }
 
   public static void readFile() {
+    String fileName;
+    scanner = new Scanner(System.in);
+    System.out.print("Enter a file name: ");
+    fileName = scanner.nextLine();
+
     try {
 
-      File f = new File("motd.txt");
+      File f = new File(fileName);
       Scanner reader = new Scanner(f);
 
       while (reader.hasNextLine()) {
