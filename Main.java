@@ -142,12 +142,12 @@ class Main {
   public static Account login() {
     scanner = new Scanner(System.in);
 
-    Account acc = new Account("filler", "null");
+    Account acc = new Account("filler", "null", false);
     
     System.out.print("Username: "); // here
     acc.username = scanner.nextLine();
     
-    if (!acc.username.equals("Guest")) {
+    if (!acc.guest) {
       System.out.print("Password: ");
       acc.password = scanner.nextLine();
     }
