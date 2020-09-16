@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileWriter;
  
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
@@ -70,9 +71,16 @@ class Main {
       case "":
         break;
 
-      case "file":
+      case "rfile":
         if (!account.guest) {
           readFile();
+        }
+        
+        break;
+
+      case "wfile":
+        if (!account.guest) {
+          writeFile();
         }
         
         break;
@@ -166,11 +174,8 @@ class Main {
   }
 
   public static void readFile() {
-    String fileName;
-    scanner = new Scanner(System.in);
-    System.out.print("Enter a file name: ");
-    fileName = scanner.nextLine();
-
+    String fileName = getFile();
+    
     try {
 
       File f = new File(fileName);
@@ -186,6 +191,40 @@ class Main {
     } catch (FileNotFoundException e) {
       System.out.println("An error has occurred");
     }
+  }
+
+  public static void writeFile() {
+    String fileName = getFile();
+
+    if (fileName.contains(".java") || fileName.contains(".class") || fileName.contains(".md")) {
+
+      System.out.println("stop trying to brick the code you ape");
+
+    } else {
+      scanner = new Scanner(System.in);
+
+      try {
+
+        FileWriter w = new FileWriter(fileName);
+        System.out.print("What would you like to write to this file? ");
+        String line = scanner.nextLine();
+        w.write(line);
+        w.close();
+
+      } catch (IOException e) {
+        
+        System.out.println("An error has occurred");
+
+      } //end try
+    } //end else
+  } //end func
+
+  public static String getFile() {
+    String fileName;
+    scanner = new Scanner(System.in);
+    System.out.print("Enter a file name: ");
+    fileName = scanner.nextLine();
+    return fileName;
   }
 
 } // end class
