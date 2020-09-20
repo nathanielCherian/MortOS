@@ -21,8 +21,11 @@ public class Anim {
         case "wave":
           t.wave();
           break;
+
         case "boom":
           t.boom();
+          break;
+
         default:
           break;
 
@@ -99,42 +102,7 @@ class Terminal {
   /**
   Loading bar demo
   */
-  public void loader() {
-    System.out.println(ANSI_RED + "Loading!" + ANSI_RESET);
-    for (int i = 0; i < 100; i++) {
-      try {
-          Thread.sleep(100);
-      } catch (Exception e) {
-          System.out.println(e);
-      }
-      int width = (i + 1) / 4;
 
-      String str = "#";
-
-
-      String hashes = new String(new char[width]).replace("\0", str);
-      String spaces = new String(new char[25-width]).replace("\0", " ");
-
-      String bar = "[" + hashes + spaces + "]";
-      System.out.print(ANSI_CURSOR_BACKWARD);
-      System.out.print(bar);
-    }
-    System.out.println();
-  }
-
-  public void block(){
-
-    System.out.print(SAVE_CURSOR);
-
-
-    String block = new String(new char[50]).replace("\0", ANSI_GREEN + "█");
-    for(int y=0; y<10; y++){
-      System.out.println(block);
-
-    }
-      System.out.println(ANSI_RESET);
-
-  }
 
 
   public void present(){
@@ -153,40 +121,76 @@ class Terminal {
 
   public void boom(){
 
-    int startX = rand.nextInt(40);
-    int startY = rand.nextInt(20);
-    
-    for(int radius=1; radius<30;radius++){
 
 
-        for(int x=0;x<=radius;x++){
+    for(int i=0; i<20; i++){
+
+      int startX = rand.nextInt(80);
+      int startY = rand.nextInt(40);
+
+      
+      int rad_length = rand.nextInt(20) + 10;
+
+
+      int rand_color = rand.nextInt(18) + 184;
+      String color = "\u001b[38;5;" + Integer.toString(rand_color) + "m";
+
+      for(int radius=1; radius<rad_length;radius++){
+
+
+        for(int x=-radius;x<=radius;x++){
 
           int y = (int) Math.sqrt(((radius*radius) - (x-0)*(x-0)));
+          int y1 = (y * -1) + startY;
 
           //System.out.println("["+Integer.toString(radius)+"]("+Integer.toString(x)+", "+Integer.toString(y)+")");
 
           if((y <= 40) && (y>= 0) ){
-            String cursor_move = BUILDER_ESCAPE + Integer.toString(y) + ";" + Integer.toString(2*x) + "H";
+            String cursor_move = BUILDER_ESCAPE + Integer.toString((y/2)+startY/2) + ";" + Integer.toString(x+radius+startX) + "H";
 
             String chars = "@#$%&+=";
             char dchar = chars.charAt(rand.nextInt(chars.length()));
 
-            System.out.print(cursor_move+"#");
+            System.out.print(cursor_move+color+"#");
 
-
-            //System.out.print(cursor_move+dchar);
             
           }
+
+          if((y1 <= 40) && (y1>= 0) ){
+            String cursor_move = BUILDER_ESCAPE + Integer.toString((y1/2)) + ";" + Integer.toString(x+radius+startX) + "H";
+
+            String chars = "@#$%&+=";
+            char dchar = chars.charAt(rand.nextInt(chars.length()));
+
+            System.out.print(cursor_move+color+"#");
+
+            
+          }
+
+
           //System.out.println("x: " + Integer.toString(x));
         }
 
         try {
-          Thread.sleep(100);
+          Thread.sleep(50);
       } catch (Exception e) {
           System.out.println(e);
       }
       
-    }
+    } //end loop 1
+
+
+    System.out.print(Terminal.ANSI_CLEAR_SCREEN + Terminal.ANSI_HOME_CURSOR);
+
+
+  } //end main loop
+
+
+    
+
+
+
+
 
     System.out.print("\033[0m");
     System.out.print(BUILDER_ESCAPE+ 41 +";0H");
