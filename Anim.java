@@ -15,15 +15,30 @@ public class Anim {
       //run demos
       Terminal t = new Terminal();
       //t.colors();
+
+      switch(args[0]){
+
+        case "wave":
+          t.wave();
+          break;
+        case "boom":
+          t.boom();
+        default:
+          break;
+
+
+      }
+
+
       //t.loader();
       //t.block();
       //t.wave();
-      t.boom();
+      //t.boom();
       //t.reverse_wave();
     }
 }
 
-//test
+
 
 class Terminal {
   //position builders
@@ -141,37 +156,40 @@ class Terminal {
     int startX = rand.nextInt(40);
     int startY = rand.nextInt(20);
     
-    for(int radius=1; radius<10;radius++){
+    for(int radius=1; radius<30;radius++){
 
 
         for(int x=0;x<=radius;x++){
 
-          int y = (int) Math.sqrt(((radius*radius) - (x*x)));
+          int y = (int) Math.sqrt(((radius*radius) - (x-0)*(x-0)));
 
-          System.out.println("["+Integer.toString(radius)+"]("+Integer.toString(x)+", "+Integer.toString(y)+")");
+          //System.out.println("["+Integer.toString(radius)+"]("+Integer.toString(x)+", "+Integer.toString(y)+")");
 
-          if((y <= 20) && (y>= 0) ){
-            String cursor_move = BUILDER_ESCAPE + Integer.toString(y) + ";" + Integer.toString(x) + "H";
+          if((y <= 40) && (y>= 0) ){
+            String cursor_move = BUILDER_ESCAPE + Integer.toString(y) + ";" + Integer.toString(2*x) + "H";
 
             String chars = "@#$%&+=";
             char dchar = chars.charAt(rand.nextInt(chars.length()));
 
-            //int box = (int) x/divisor + 160;
-            //System.out.print("\u001b[38;5;" + Integer.toString(box) + "m");
-            
+            System.out.print(cursor_move+"#");
+
+
             //System.out.print(cursor_move+dchar);
             
           }
-
+          //System.out.println("x: " + Integer.toString(x));
         }
 
-
+        try {
+          Thread.sleep(100);
+      } catch (Exception e) {
+          System.out.println(e);
+      }
       
     }
 
-
-
-
+    System.out.print("\033[0m");
+    System.out.print(BUILDER_ESCAPE+ 41 +";0H");
     
 
   }
@@ -197,8 +215,8 @@ class Terminal {
 
       for(int x=0; x<width; x++){
 
-        int y = (int) -x/2 + d;
-        int y_space = (int) -x/2 + d + mem;
+        int y = (int) x/2 + d;
+        int y_space = (int) x/2 + d + mem;
 
         int randomsx = rand.nextInt(2) * rand.nextInt(3);
         int randomsy = rand.nextInt(2) * rand.nextInt(2);

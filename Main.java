@@ -60,9 +60,16 @@ class Main {
         System.out.print("\u001B[2J" + "\u001B[0;0H");  
         break;
 
-      case "anim":
-        Anim.main(null);
+      case "wave":
+        String[] qargs = {"wave"};
+        Anim.main(qargs);
         break;
+
+      case "boom":
+        String[] bargs = {"boom"};
+        Anim.main(bargs);
+        break;
+
       case "exit":
         login = false;
         System.out.println("bye!");
