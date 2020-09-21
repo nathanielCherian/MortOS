@@ -10,10 +10,7 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileWriter;
  
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
-//import org.json.simple.parser.JSONParser;
-//import org.json.simple.parser.ParseException;
+
 
 class Main {
   public static Scanner scanner;
@@ -69,6 +66,12 @@ class Main {
         String[] bargs = {"boom"};
         Anim.main(bargs);
         break;
+
+      case "base":
+        BaseAnim bs = new BaseAnim(80, 40);
+        bs.grid();
+        break;
+
 
       case "exit":
         login = false;
