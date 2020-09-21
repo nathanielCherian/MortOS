@@ -81,7 +81,7 @@ class Main {
         login = false;
         System.out.println("bye!");
         break;
-
+      
       case "":
         break;
 
@@ -227,6 +227,7 @@ class Main {
         Scanner r = new Scanner(fileName);
         while (r.hasNextLine()) {
           writing += r.nextLine() + "\n";
+          System.out.println(writing);
         }
         w.write(writing + line);
         w.close();
