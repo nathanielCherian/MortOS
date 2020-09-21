@@ -100,6 +100,8 @@ class Main {
       case "rfile":
         if (!account.guest) {
           readFile();
+        } else {
+          System.out.println("Insufficient Permissions");
         }
         
         break;
@@ -107,6 +109,8 @@ class Main {
       case "wfile":
         if (!account.guest) {
           writeFile();
+        } else {
+          System.out.println("Insufficient Permissions");
         }
         
         break;
@@ -295,10 +299,12 @@ class Main {
         String writing = "";
         Scanner r = new Scanner(fileName);
         while (r.hasNextLine()) {
-          writing += r.nextLine() + "\n";
+          String data = r.nextLine();
+          writing += data + "\n";
           System.out.println(writing);
         }
         w.write(writing + line);
+        r.close();
         w.close();
 
       } catch (IOException e) {
