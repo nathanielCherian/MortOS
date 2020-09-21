@@ -49,6 +49,10 @@ class Main {
         add_command();
         break;
 
+      case "subtract":
+        subtract_command();
+        break;
+
       case "pythag":
         pythag_command();
         break;
@@ -147,6 +151,25 @@ class Main {
 
   }
 
+  public static void subtract_command() {
+
+    try{
+    
+    System.out.print("enter num1: ");
+    Float num1 = scanner.nextFloat();
+
+    System.out.print("enter num2: ");
+    Float num2 = scanner.nextFloat();
+
+    Float sum = num1 - num2;
+
+    System.out.println(num1.toString() + " - " + num2.toString() + " = " + sum.toString());
+    } catch(Exception e){
+      System.out.println("ENTER A NUMBER!");
+    }
+
+  }
+  
   public static void pythag_command() {
 
     try{
