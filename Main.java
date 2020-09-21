@@ -72,6 +72,10 @@ class Main {
         bs.grid();
         break;
 
+      case "launch":
+        Launch la = new Launch(200, 40);
+        la.present();
+        break;
 
       case "exit":
         login = false;

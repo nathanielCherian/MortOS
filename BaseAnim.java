@@ -6,8 +6,8 @@ public class BaseAnim {
     public static final String ANSI_HOME_CURSOR = "\u001B[0;0H";
     public static final String ANSI_CLEAR_SCREEN = "\u001B[2J";
 
-    private int width;
-    private int height;
+    public int width;
+    public int height;
 
     public BaseAnim(int w, int h){
         width = w;
@@ -17,14 +17,19 @@ public class BaseAnim {
 
     public void print(int x, int y, int color_256, char char_){
 
-        String cursor_move = BUILDER_ESCAPE + Integer.toString(height-y) + ";" + Integer.toString(x) + "H";
-        String color = "\u001b[38;5;" + color_256 + "m";
+        if((y <= height) && (y>= 0) && (x <= width) && (x >= 0)){
 
-        System.out.print(cursor_move+color+char_+"\033[0m");
+            String cursor_move = BUILDER_ESCAPE + Integer.toString(height-y) + ";" + Integer.toString(x) + "H";
+            String color = "\u001b[38;5;" + color_256 + "m";
+
+            System.out.print(cursor_move+color+char_+"\033[0m");
+            
+        }   
+
     }
 
 
-    
+
     public void grid(){
 
         clear();
