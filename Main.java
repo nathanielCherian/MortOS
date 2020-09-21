@@ -10,10 +10,7 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileWriter;
  
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
-//import org.json.simple.parser.JSONParser;
-//import org.json.simple.parser.ParseException;
+
 
 class Main {
   public static Scanner scanner;
@@ -60,9 +57,26 @@ class Main {
         System.out.print("\u001B[2J" + "\u001B[0;0H");  
         break;
 
-      case "anim":
-        Anim.main(null);
+      case "wave":
+        String[] qargs = {"wave"};
+        Anim.main(qargs);
         break;
+
+      case "boom":
+        String[] bargs = {"boom"};
+        Anim.main(bargs);
+        break;
+
+      case "base":
+        BaseAnim bs = new BaseAnim(80, 40);
+        bs.grid();
+        break;
+
+      case "launch":
+        Launch la = new Launch(200, 40);
+        la.present();
+        break;
+
       case "exit":
         login = false;
         System.out.println("bye!");
