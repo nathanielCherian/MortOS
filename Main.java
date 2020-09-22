@@ -88,6 +88,13 @@ class Main {
         Launch la = new Launch(200, 40);
         la.present(30.0, 30.0);
         break;
+      
+      case"im":
+        Image im = new Image("test.png");
+        int[][] gs = im.to_grayscale();
+        int[][] scaled_gs = im.scale(gs);
+        im.to_ascii(scaled_gs);
+        break;
 
       case "exit":
         login = false;
