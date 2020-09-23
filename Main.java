@@ -127,6 +127,19 @@ class Main {
         }
         
         break;
+      
+      case "vietnamese":
+        System.out.println("Câu này là Tiếng Việt. Tôi muốn thấy khả năng của Unicode.");
+        break;
+
+      case "chinese":
+        System.out.println("我不喜欢中国人");
+        break;
+
+      case "japanese":
+        System.out.println("ぼくのなまえはアンソニー");
+        break;
+
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
