@@ -90,7 +90,13 @@ class Main {
         break;
       
       case"im":
-        Image im = new Image("test.png");
+        System.out.print("Filename: ");
+        String filename = scanner.nextLine();
+
+        System.out.print("Scale factor (2, 4, 8, 16): ");
+        int SCALE_FACTOR = scanner.nextInt();
+
+        Image im = new Image(filename, SCALE_FACTOR);
         int[][] gs = im.to_grayscale();
         int[][] scaled_gs = im.scale(gs);
         im.to_ascii(scaled_gs);

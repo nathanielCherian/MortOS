@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 public class Image {
 
-    public static final int SCALE_FACTOR = 4;
+    public int SCALE_FACTOR = 2;
 
     public String filename;
 
@@ -15,8 +15,9 @@ public class Image {
     public int width;
     public int[][][] rgb;
 
-    public Image(String f) {
+    public Image(String f, int SCALE_FACTOR) {
         this.filename = f;
+        this.SCALE_FACTOR = SCALE_FACTOR;
         read_image();
     }
 
@@ -102,7 +103,7 @@ public class Image {
                     for(int y=(h)*SCALE_FACTOR; y<(h+1)*SCALE_FACTOR; y++){
 
                         //System.out.println("("+Integer.toString(x)+", "+Integer.toString(y)+")");
-                        sum = sum + gs[x][y];
+                        sum = sum + gs[y][x];
 
                     }
                 } //end loop 2
@@ -123,14 +124,18 @@ public class Image {
 
     public void to_ascii(int[][] scaled_gs){
 
-        String INTENSITY_MAP = " .,_-+=~'`*<>{}^?&$#@";
+        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
         int INTENSITY_BIN = (int) 255/INTENSITY_MAP.length();
 
 
         for (int[] x: scaled_gs){
             for(int v: x){
-                int c = (int) v/INTENSITY_BIN;
-                System.out.print(""+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c));
+                int c = (int) v/INTENSITY_BIN -1;
+                if(c >=0 ){
+                    System.out.print(""+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c));//+INTENSITY_MAP.charAt(c));
+                }else{
+                    System.out.print("  ");
+                }
             }
             System.out.println();
         }
