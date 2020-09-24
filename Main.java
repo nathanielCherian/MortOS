@@ -132,7 +132,19 @@ class Main {
         System.out.println("Câu này là Tiếng Việt. Tôi muốn thấy khả năng của Unicode.");
         break;
 
+      case "fibonacci":
+        System.out.println("What term do you want?");
+        Fibonacci f = new Fibonacci();
 
+        try {
+          int num = scanner.nextInt();
+          System.out.println("The " + num + " term of the Fibonacci Sequence is " + f.fib(num));
+        } catch (Exception e) {
+          System.out.println("That's not a number :(");
+        }
+
+
+        break;
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
