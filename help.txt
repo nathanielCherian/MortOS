@@ -1,0 +1,12 @@
+Commands:
+add, subtract, multiply, divide: perform the desired operation on two numbers
+pythag: find the hypotenuse of a right triangle give 2 legs
+cls: clear screen
+wave: cool wave animation!
+boom: cool circle animation!
+base: cool animation
+launch: physics based animation; shows path of a ball shot out of a cannon
+im: image to ascii converter
+rfile: read file (verified user exclusive)
+wfile: write to file (verified user exclusive)
+fibonacci: gives a term of the fibonacci sequence

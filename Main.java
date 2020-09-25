@@ -145,6 +145,25 @@ class Main {
 
 
         break;
+
+      case "help":
+        try {
+
+          File help = new File("help.txt");
+          Scanner reader = new Scanner(help);
+    
+          while (reader.hasNextLine()) {
+            String data = reader.nextLine();
+            System.out.println(data);
+          }
+    
+          reader.close();
+    
+        } catch (FileNotFoundException e) {
+          System.out.println("An error has occurred");
+        }
+
+        break;
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
@@ -172,7 +191,7 @@ class Main {
     System.out.print("\n");
 
     System.out.println("logged in as '" + account.username + "'");
-
+    System.out.println("Use 'help' for a list of commands!");
   }
 
   public static void add_command() {
@@ -314,7 +333,7 @@ class Main {
   public static void writeFile() {
     String fileName = getFile();
 
-    if (fileName.contains(".java") || fileName.contains(".class") || fileName.contains(".md")) {
+    if (fileName.contains(".java") || fileName.contains(".class") || fileName.contains(".md") || fileName.equals("help.txt")) {
 
       System.out.println("stop trying to brick the code you ape");
 
