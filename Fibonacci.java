@@ -12,8 +12,8 @@ public class Fibonacci {
         int length = seq.size();
         seq.add(seq.get(length-2) + seq.get(length-1));
 
-        if (iterations == 0) {
-            return seq.get(seq.size()-4);
+        if (seq.size() == iterations) {
+            return seq.get(seq.size()-1);
         } else {
             return fib(iterations - 1);
         }
