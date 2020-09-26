@@ -6,3 +6,12 @@ This is a test
 This is another slide
 
 ---
+
+#this is slide 3
+This has three lines
+number 3
+---
+
+# Number 4 is the best
+
+---

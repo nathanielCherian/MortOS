@@ -15,18 +15,28 @@ public class Present {
     
     public static void main(String[] args) {
 
-        Slide sl = new Slide(10,10,"2");
+        //Slide sl = new Slide(30,10,"2");
 
         String data = load_file();
         Slide[] slides = get_slides(data);
 
         Scanner controller = new Scanner(System.in);  
 
+        int a = 0;
+        while(true){
+            slides[a].dispay();
+            a = controller.nextInt();
+            a--;
+            if(a<0||a>=slides.length){
+                break;
+            }
+        }
 
+        /*
         for(Slide s : slides){
             s.dispay();
             int a = controller.nextInt();  
-        }
+        }*/
 
         //System.out.println(data);
 
@@ -60,10 +70,10 @@ public class Present {
 
         ArrayList<Slide> slides = new ArrayList<Slide>();
 
-        for (String block: data.split("---")) {
+        for (String block: data.split("---\n")) {
 
             if (block.length() > 0){
-                slides.add(new Slide(30, 15, block));
+                slides.add(new Slide(80, 20, block));
             }
 
         }
