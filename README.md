@@ -1,5 +1,7 @@
-# MortOS
+[![Run on Repl.it](https://repl.it/badge/github/nathanielCherian/MortOS)](https://repl.it/github/nathanielCherian/MortOS) 
+![DNHS](https://img.shields.io/badge/DNHS-mortos-brightgreen)
 
+# MortOS
 This is MortOS. The only shell you'll ever need. No question.
 
 Created by Scrum Group 1 DNHS CSA
