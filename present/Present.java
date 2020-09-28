@@ -3,6 +3,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -22,12 +25,30 @@ public class Present {
 
         Scanner controller = new Scanner(System.in);  
 
-        int a = 0;
+        String a = "0";
+        int c = 0;
         while(true){
-            slides[a].dispay();
-            a = controller.nextInt();
-            a--;
-            if(a<0||a>=slides.length){
+
+            slides[c].dispay();
+            a = controller.nextLine();
+            
+            if(a.equals("d")||a.equals("n")){
+                c++;
+
+            }else if(a.equals("a")||a.equals("b")){
+                c--;
+            }else{
+                try{
+                    c = Integer.valueOf(a);
+                    c--;
+                }catch(Exception e){
+                    
+                }
+
+
+            }
+
+            if(c<0||c>=slides.length){
                 break;
             }
         }
