@@ -145,6 +145,10 @@ class Main {
         }
         break;
 
+      case "pas":
+        Pascal.pascal(10);
+        break;
+
       case "help":
         try {
 
