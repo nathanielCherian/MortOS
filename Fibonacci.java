@@ -5,21 +5,24 @@ public class Fibonacci {
     int i;
 
     public Fibonacci (int i) {
-        seq.add(1);
-        seq.add(1);
         this.i = i;
+        seq.add(1);
+        seq.add(1);
     }
 
     public int fib (int iterations) {
         int length = seq.size();
         seq.add(seq.get(length-2) + seq.get(length-1));
 
-        if (seq.size() == iterations) {
-            return seq.get(i);
+        if (seq.size() == i) {
+            return seq.get(seq.size()-1);
         } else {
             return fib(iterations - 1);
         }
     }
 
+    public void printSeq () {
+        System.out.println("The sequence is: " + seq);
+    }
 
 }

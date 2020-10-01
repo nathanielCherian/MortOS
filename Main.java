@@ -138,6 +138,7 @@ class Main {
           int num = scanner.nextInt();
           Fibonacci f = new Fibonacci(num);
           System.out.println("The " + num + " term of the Fibonacci Sequence is " + f.fib(num));
+          f.printSeq();
         } catch (Exception e) {
           System.out.println("That's not a number :(");
           break;
