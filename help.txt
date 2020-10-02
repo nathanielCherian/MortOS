@@ -10,4 +10,8 @@ im: image to ascii converter
 rfile: read file (verified user exclusive)
 wfile: write to file (verified user exclusive)
 fibonacci: gives a term of the fibonacci sequence
-nathan: is gay
+pas: prints out pascals triangle as a pyramid
+
+Present:
+$ cd present
+$ sh present.sh
