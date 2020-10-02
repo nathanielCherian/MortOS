@@ -60,7 +60,7 @@ class Main {
       case "multiply":
         multiply_command();
         break;
-
+      
       case "divide":
         divide_command();
         break;
@@ -138,16 +138,19 @@ class Main {
 
       case "fibonacci":
         System.out.println("What term do you want?");
-        Fibonacci f = new Fibonacci();
-
         try {
           int num = scanner.nextInt();
+          Fibonacci f = new Fibonacci(num);
           System.out.println("The " + num + " term of the Fibonacci Sequence is " + f.fib(num));
+          f.printSeq();
         } catch (Exception e) {
           System.out.println("That's not a number :(");
+          break;
         }
+        break;
 
-
+      case "pas":
+        Pascal.pascal(10);
         break;
 
       case "help":
@@ -176,11 +179,6 @@ class Main {
 
 
   } // end main
-  // so basically we're going to create a terminal with commands in it, and when
-  // the user puts in a command, it performs a certain action. it'd help if you
-  // guys learned java on like codecademy or something bc idk why mort is making
-  // us do this first week lmao
-  // goal is to use inputs and outputs
 
   public static void printLogin(Account account) {
     String intro_text = "" + 
@@ -473,6 +471,7 @@ class Main {
     Scanner r = new Scanner(System.in);
     System.out.print("Enter a file name: ");
     fileName = r.nextLine();
+    r.close();
     return fileName;
   }
 

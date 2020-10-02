@@ -94,7 +94,7 @@ public class Slide {
     }
 
     public void reset(){
-        String cursor_move = BUILDER_ESCAPE + Integer.toString(height+1) + ";" + Integer.toString(0) + "H";
+        String cursor_move = BUILDER_ESCAPE + Integer.toString(height+2) + ";" + Integer.toString(0) + "H";
         System.out.print(cursor_move+"\033[0m");
     }
 
