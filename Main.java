@@ -117,9 +117,18 @@ class Main {
         System.out.print("Delay(ms): ");
         int delay = scanner.nextInt();
 
-        Gif g = new Gif();
-        g.animate(directory, sf, delay);
-        break;
+        if(directory.indexOf('.') >= 0){
+
+          Gif.gif_animate(directory, sf, delay);
+
+        }else{
+          Gif g = new Gif();
+          g.animate(directory, sf, delay);
+        }
+
+
+        break;          
+
 
       case "exit":
         login = false;

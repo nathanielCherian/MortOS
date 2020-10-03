@@ -15,12 +15,20 @@ public class Image {
     public int width;
     public int[][][] rgb;
 
+    
     public Image(String f, int SCALE_FACTOR) {
         this.filename = f;
         this.SCALE_FACTOR = SCALE_FACTOR;
         read_image();
     }
 
+
+    public Image(BufferedImage img, int SCALE_FACTOR){
+        this.SCALE_FACTOR = SCALE_FACTOR;
+        read_from_buffer(img);
+    }
+
+    
     public void convert(){
         System.out.println(filename);
     }
@@ -60,6 +68,36 @@ public class Image {
         }
 
     }
+
+    public void read_from_buffer(BufferedImage img){
+
+        try{
+
+            height = img.getHeight();
+            width = img.getWidth();
+
+            rgb = new int[height][width][3];
+
+
+            for (int y=0; y < height; y++){
+                for(int x=0; x < width; x++){
+                    int pixel = img.getRGB(x, y);
+                    Color color = new Color(pixel, true);
+
+                    rgb[y][x][0] = color.getRed();
+                    rgb[y][x][1] = color.getGreen();
+                    rgb[y][x][2] = color.getBlue();
+
+                }
+            }
+
+        }catch (Exception e) {
+          System.out.println(e);
+        }
+        
+    }
+
+
 
 
     public int[][] to_grayscale(){
