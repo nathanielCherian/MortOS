@@ -106,6 +106,21 @@ class Main {
         im.to_ascii(scaled_gs);
         break;
 
+      case "gif":
+
+        System.out.print("Directory: ");
+        String directory = scanner.nextLine();
+
+        System.out.print("Scale factor (2, 4, 8, 16): ");
+        int sf = scanner.nextInt();
+
+        System.out.print("Delay(ms): ");
+        int delay = scanner.nextInt();
+
+        Gif g = new Gif();
+        g.animate(directory, sf, delay);
+        break;
+
       case "exit":
         login = false;
         System.out.println("bye!");

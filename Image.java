@@ -143,6 +143,28 @@ public class Image {
 
     }
 
+    public String to_ascii_string(int[][] scaled_gs){
+
+        String INTENSITY_MAP = "@#$&?^}{><*`'~=+-_,. "; // " .,_-+=~'`*<>{}^?&$#@"
+        int INTENSITY_BIN = (int) 255/INTENSITY_MAP.length();
+
+        String im_string = "";
+
+        for (int[] x: scaled_gs){
+            for(int v: x){
+                int c = (int) v/INTENSITY_BIN -1;
+                if(c >=0 ){
+                    im_string = im_string+INTENSITY_MAP.charAt(c)+INTENSITY_MAP.charAt(c);
+                }else{
+                    im_string = im_string + "  ";
+                }
+            }
+            im_string = im_string + "\n";
+        }
+
+        return im_string;
+    }
+
 
 
 }
