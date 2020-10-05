@@ -65,6 +65,10 @@ class Main {
         divide_command();
         break;
 
+      case "heli":
+        heli_command();
+        break;
+
       case "pythag":
         pythag_command();
         break;
@@ -395,6 +399,26 @@ class Main {
 
   }
 
+  public static void heli_command() {
+
+        System.out.println("___________________________    _________________________");
+        System.out.println("`--------------------------`()'--------------------------'");
+        System.out.println("                            ||");
+        System.out.println("                         __ ||                                        ___");
+        System.out.println("                         ] ''''---...._                             .' //");
+        System.out.println("                   _,-'''==============`--.                       .'/)//");
+        System.out.println("                 ,' ) ,--. .-----.         `.___________________.' ///_");
+        System.out.println("               .'  / /___| |_____|                       _______  ()  _>");
+        System.out.println("              /   / /____| |__|__|             ,----'''''       `//  \\");
+        System.out.println("            .<`=='===========================.'                 (/`.  \\");
+        System.out.println("           (  `.----------------------------/                       `._\\");
+        System.out.println("            `-._\\_                ____...-'");
+        System.out.println("                  '''--ii--''''77");
+        System.out.println("                 .____//______//____,");
+        System.out.println("                 `------------------'");
+        System.out.println("                   Jett's Helicopter");
+    }
+     
   public static void pythag_command() {
 
     try{
