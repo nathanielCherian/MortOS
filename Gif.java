@@ -44,7 +44,7 @@ public class Gif {
 
     public static void gif_animate(String g, Integer scale, Integer delay){
 
-
+        // https://stackoverflow.com/questions/8933893/convert-each-animated-gif-frame-to-a-separate-bufferedimage
 
         try {
             String[] imageatt = new String[]{
