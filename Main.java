@@ -164,6 +164,9 @@ class Main {
         }
 
         break;
+      case "printthree":
+        printthree();
+        break;
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;
@@ -364,7 +367,16 @@ class Main {
       } //end try
     } //end else
   } //end func
-
+   
+    public static void printthree() {
+  
+      int n = 3;
+      // for loop  
+      for (int i = 1; i <= n; ++i) {
+        System.out.println("CODE CODE CODE");
+      }
+    }
+  
   public static String getFile() {
     String fileName;
     Scanner r = new Scanner(System.in);
