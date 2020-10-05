@@ -1,17 +1,21 @@
 Commands:
-add, subtract, multiply, divide: perform the desired operation on two numbers
-pythag: find the hypotenuse of a right triangle give 2 legs
-cls: clear screen
-wave: cool wave animation!
-boom: cool circle animation!
-base: cool animation
-launch: physics based animation; shows path of a ball shot out of a cannon
-im: image to ascii converter
-gif: gif/video to ascii converter
-rfile: read file (verified user exclusive)
-wfile: write to file (verified user exclusive)
-fibonacci: gives a term of the fibonacci sequence
-pas: prints out pascals triangle as a pyramid
+add, subtract, multiply, divide: perform the desired operation on two numbers (jett)
+pythag: find the hypotenuse of a right triangle given 2 legs (nathan)
+cls: clear screen (nathan)
+wave: cool wave animation! (nathan)
+boom: cool circle animation! (nathan)
+base: cool animation (nathan)
+launch: physics based animation; shows path of a ball shot out of a cannon (nathan)
+im: image to ascii converter (nathan)
+gif: gif/video to ascii converter (nathan)
+rfile: read file (verified user exclusive) (anthony)
+wfile: write to file (verified user exclusive) (anthony)
+fibonacci: gives a term of the fibonacci sequence (anthony)
+pas: prints out pascals triangle as a pyramid (nathan)
+currency: currency converter (jett)
+vietnamese: test of ascii/unicode symbols (anthony)
+help: this command (anthony)
+exit: exit the shell (nathan)
 
 Present:
 $ cd present
