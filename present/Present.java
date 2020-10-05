@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class Present {
     
+    public static final String ANSI_RED_BACK = "\u001B[41m";
+
     public static String md_name = "present.md";
 
 
     
     public static void main(String[] args) {
-
-        //Slide sl = new Slide(30,10,"2");
 
         String data = load_file();
         Slide[] slides = get_slides(data);
@@ -30,8 +30,9 @@ public class Present {
         while(true){
 
             slides[c].dispay();
+            slnum(c, slides.length);
             a = controller.nextLine();
-            
+
             if(a.equals("d")||a.equals("n")){
                 c++;
 
@@ -53,16 +54,21 @@ public class Present {
             }
         }
 
-        /*
-        for(Slide s : slides){
-            s.dispay();
-            int a = controller.nextInt();  
-        }*/
-
-        //System.out.println(data);
 
     }
 
+
+    public static void slnum(int c, int l){
+
+        String stat = ANSI_RED_BACK+Integer.toString(c+1)+"/"+Integer.toString(l)+"\u001B[0m";
+        int padSize = 90 - stat.length();
+        int padStart = stat.length() + padSize / 2;
+        stat = String.format("%" + padStart + "s", stat);
+        stat = String.format("%-" + 90  + "s", stat);
+
+        System.out.println(stat);
+ 
+    }
 
     public static String load_file() {
 

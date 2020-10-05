@@ -3,7 +3,7 @@
 import java.util.*;
 import java.lang.Math;
 import java.util.Random;
-
+import java.text.DecimalFormat;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -45,6 +45,10 @@ class Main {
 
       switch (input) {
 
+      case "currency":
+        currency_command();
+        break;
+
       case "add":
         add_command();
         break;
@@ -56,7 +60,7 @@ class Main {
       case "multiply":
         multiply_command();
         break;
-
+      
       case "divide":
         divide_command();
         break;
@@ -102,6 +106,30 @@ class Main {
         im.to_ascii(scaled_gs);
         break;
 
+      case "gif":
+
+        System.out.print("Directory: ");
+        String directory = scanner.nextLine();
+
+        System.out.print("Scale factor (2, 4, 8, 16): ");
+        int sf = scanner.nextInt();
+
+        System.out.print("Delay(ms): ");
+        int delay = scanner.nextInt();
+
+        if(directory.indexOf('.') >= 0){
+
+          Gif.gif_animate(directory, sf, delay);
+
+        }else{
+          Gif g = new Gif();
+          g.animate(directory, sf, delay);
+        }
+
+
+        break;          
+
+
       case "exit":
         login = false;
         System.out.println("bye!");
@@ -134,16 +162,19 @@ class Main {
 
       case "fibonacci":
         System.out.println("What term do you want?");
-        Fibonacci f = new Fibonacci();
-
         try {
           int num = scanner.nextInt();
+          Fibonacci f = new Fibonacci(num);
           System.out.println("The " + num + " term of the Fibonacci Sequence is " + f.fib(num));
+          f.printSeq();
         } catch (Exception e) {
           System.out.println("That's not a number :(");
+          break;
         }
+        break;
 
-
+      case "pas":
+        Pascal.pascal(10);
         break;
 
       case "help":
@@ -175,11 +206,6 @@ class Main {
 
 
   } // end main
-  // so basically we're going to create a terminal with commands in it, and when
-  // the user puts in a command, it performs a certain action. it'd help if you
-  // guys learned java on like codecademy or something bc idk why mort is making
-  // us do this first week lmao
-  // goal is to use inputs and outputs
 
   public static void printLogin(Account account) {
     String intro_text = "" + 
@@ -196,6 +222,105 @@ class Main {
     System.out.println("logged in as '" + account.username + "'");
     System.out.println("Use 'help' for a list of commands!");
   }
+  
+  public static void currency_command() {
+
+    double amount, dollar, pound, code, euro, yen, rupee;
+ 
+		DecimalFormat f = new DecimalFormat("##.##");
+ 
+		Scanner sc = new Scanner(System.in);
+ 
+		System.out.println("hi, Welcome to the Currency Converter!");
+ 
+		System.out.println("which currency You want to Convert ? ");
+		
+		System.out.println("1:Ruppe \t2:Dollar \t3:Pound \n4:Euro \t5:Yen");
+		code = sc.nextInt();
+		
+		System.out.println("How much Money you want to convert?");
+		amount = sc.nextFloat();
+ 
+		// For amounts Conversion
+		if (code == 1) {
+ 
+			dollar = amount / 70;
+			System.out.println("Your " + amount + " Rupees : " + f.format(dollar) + " Dollars");
+ 
+			pound = amount / 88;
+			System.out.println("Your " + amount + " Rupees : " + f.format(pound) + " Pounds");
+ 
+			euro = amount / 80;
+			System.out.println("Your " + amount + " Rupees : " + f.format(euro) + " Euros");
+ 
+			yen = amount / 0.63;
+			System.out.println("Your " + amount + " Rupees : " + f.format(yen) + " Yen");
+ 
+		} else if (code == 2) {
+			// For Dollar Conversion
+ 
+			rupee = amount * 70;
+			System.out.println("Your " + amount + " Dollars : " + f.format(rupee) + " Rupees");
+ 
+			pound = amount * 0.78;
+			System.out.println("Your " + amount + " Dollars : " + f.format(pound) + " Pounds");
+ 
+			euro = amount * 0.87;
+			System.out.println("Your " + amount + " Dollars : " + f.format(euro) + " Euros");
+ 
+			yen = amount * 111.087;
+			System.out.println("Your " + amount + " Dollars : " + f.format(yen) + " Yen");
+
+		} else if (code == 3) {
+			// For Pound Conversion
+ 
+			rupee = amount * 88;
+			System.out.println("Your " + amount + " Pounds : " + f.format(rupee) + " Rupees");
+ 
+			dollar = amount * 1.26;
+			System.out.println("Your " + amount + " Pounds : " + f.format(dollar) + " Dollars");
+ 
+			euro = amount * 1.10;
+			System.out.println("Your " + amount + " Pounds : " + f.format(euro) + " Euros");
+ 
+			yen = amount * 140.93;
+			System.out.println("Your " + amount + " Pounds : " + f.format(yen) + " Yen");
+ 
+		} else if (code == 4) {
+			// For Euro Conversion
+ 
+			rupee = amount * 80;
+			System.out.println("Your " + amount + " Euros : " + f.format(rupee) + " Rupees");
+ 
+			dollar = amount * 1.14;
+			System.out.println("Your " + amount + " Euros : "  + f.format(dollar) + " Dollars");
+ 
+			pound = amount * 0.90;
+			System.out.println("Your " + amount + " Euros : " + f.format(pound) + " Pounds");
+ 
+			yen = amount * 127.32;
+			System.out.println("Your " + amount + " Euros : " + f.format(yen) + " Yen");
+ 
+		} else if (code == 5) {
+ 
+			// For Yen Conversion
+ 
+			rupee = amount * 0.63;
+			System.out.println("Your " + amount + " Yen : " + f.format(rupee) + " Rupees");
+ 
+			dollar = amount * 0.008;
+			System.out.println("Your " + amount + " Yen : " + f.format(dollar) + " Dollars");
+ 
+			pound = amount * 0.007;
+			System.out.println("Your " + amount + " Yen : " + f.format(pound) + " Pounds");
+ 
+			euro = amount * 0.007;
+			System.out.println("Your " + amount + " Yen : " + f.format(euro) + " Euros");
+		} 
+		else {
+			System.out.println("Invalid Input");
+		}
+	}
 
   public static void add_command() {
 
@@ -382,6 +507,7 @@ class Main {
     Scanner r = new Scanner(System.in);
     System.out.print("Enter a file name: ");
     fileName = r.nextLine();
+    r.close();
     return fileName;
   }
 

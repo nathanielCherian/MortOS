@@ -1,4 +1,4 @@
-[![Run on Repl.it](https://repl.it/badge/github/nathanielCherian/MortOS)](https://repl.it/github/nathanielCherian/MortOS) 
+[![Run on Repl.it](https://repl.it/badge/github/nathanielCherian/MortOS)](https://repl.it/@NathanielCheria/MortOS#README.md) 
 ![DNHS](https://img.shields.io/badge/DNHS-mortos-brightgreen)
 
 # MortOS
