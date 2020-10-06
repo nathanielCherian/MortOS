@@ -15,6 +15,7 @@ MortOS is run primarily off of commands, here are some of the main ones.
 
 - wave - create wave animations 
 - boom - create firework animation
+- heli - create helicopter animation
 - launch - demo physics kinematics
 - im - convert image to ascii
 - rfile - read file
