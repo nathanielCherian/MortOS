@@ -19,7 +19,7 @@ public class Heli extends BaseAnim {
         System.out.println("                  '''--ii--''''77");
         System.out.println("                 .____//______//____,");
         System.out.println("                 `------------------'");
-        System.out.println("                   Jett's Helicopter");
+        System.out.println("                 Jett's School Vehicle");
     }
 
     public void animate() {
@@ -37,7 +37,7 @@ public class Heli extends BaseAnim {
                 System.out.println(b+s+"`()'"+s+b);
                 heli();
 
-                sleep(50);
+                sleep(30);
 
                 System.out.println("\u001B[2J");
                 String cursor_move = BUILDER_ESCAPE + "0;0H";
@@ -52,7 +52,7 @@ public class Heli extends BaseAnim {
                 System.out.println(b+s+"`()'"+s+b);
                 heli();
 
-                sleep(40);
+                sleep(30);
 
                 System.out.println("\u001B[2J");
                 String cursor_move = BUILDER_ESCAPE + "0;0H";
