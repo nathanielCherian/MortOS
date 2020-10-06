@@ -22,41 +22,33 @@ public class Heli extends BaseAnim {
         System.out.println("                 Jett's School Vehicle");
     }
 
+    public void rotoranimation(int n) {
+        String s = printrotor(n, "_");
+        String b = new String(new char[27-n]).replace("\0", " ");
+        System.out.println(b+s+"    "+s+b);
+        s = printrotor(n, "-");
+        System.out.println(b+s+"`()'"+s+b);
+        heli();
+
+        sleep(30);
+
+        System.out.println("\u001B[2J");
+        String cursor_move = BUILDER_ESCAPE + "0;0H";
+        System.out.print(cursor_move+"\033[0m");
+    }
+
     public void animate() {
-
         clear();
-        for(int i = 0; i < 10; i++) {
 
+        for(int i = 0; i < 5; i++) {
             clear();
+
             for(int n = 0; n < 27; n++) {
-
-                String s = printrotor(n, "_");
-                String b = new String(new char[27-n]).replace("\0", " ");
-                System.out.println(b+s+"    "+s+b);
-                s = printrotor(n, "-");
-                System.out.println(b+s+"`()'"+s+b);
-                heli();
-
-                sleep(30);
-
-                System.out.println("\u001B[2J");
-                String cursor_move = BUILDER_ESCAPE + "0;0H";
-                System.out.print(cursor_move+"\033[0m");
+                rotoranimation(n);
             }
 
             for(int n = 27; n > 0; n--) {
-                String s = printrotor(n, "_");
-                String b = new String(new char[27-n]).replace("\0", " ");
-                System.out.println(b+s+"    "+s+b);
-                s = printrotor(n, "-");
-                System.out.println(b+s+"`()'"+s+b);
-                heli();
-
-                sleep(30);
-
-                System.out.println("\u001B[2J");
-                String cursor_move = BUILDER_ESCAPE + "0;0H";
-                System.out.print(cursor_move+"\033[0m");
+                rotoranimation(n);
             }
         }  
     }
@@ -64,5 +56,4 @@ public class Heli extends BaseAnim {
         String rotorlength = new String(new char[x]).replace("\0", s);
         return rotorlength;
     }
-
 }
