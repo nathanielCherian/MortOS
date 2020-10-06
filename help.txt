@@ -14,6 +14,7 @@ fibonacci: gives a term of the fibonacci sequence (anthony)
 pas: prints out pascals triangle as a pyramid (nathan)
 currency: currency converter (jett)
 vietnamese: test of ascii/unicode symbols (anthony)
+heli: flying helicopter animation (jett)
 help: this command (anthony)
 exit: exit the shell (nathan)
 
