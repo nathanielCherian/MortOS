@@ -66,7 +66,8 @@ class Main {
         break;
 
       case "heli":
-        heli_command();
+        Heli he = new Heli(100, 50);
+        he.animate();
         break;
 
       case "pythag":
