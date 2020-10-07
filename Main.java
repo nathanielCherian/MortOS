@@ -203,6 +203,21 @@ class Main {
       case "printthree":
         printthree();
         break;
+
+      case "printarray":
+        System.out.println("Names       Grade");
+
+        String names[] = {"Anthony", "Benny", "Brendan", "Jett", "Nathan"};
+        int lemon[] = {100, 100, 100, 100, 100, 100};
+        
+          for( int x = 1 ; x< lemon.length-1 ; x++ ) {
+      
+              System.out.println(names[x]+ "            "+ lemon[x] );
+              
+          
+          }
+        break;
+
       default:
         System.out.println("Mr. Mortensen says: " + input);
         break;

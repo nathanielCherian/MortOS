@@ -15,6 +15,8 @@ pas: prints out pascals triangle as a pyramid (nathan)
 currency: currency converter (jett)
 vietnamese: test of ascii/unicode symbols (anthony)
 heli: flying helicopter animation (jett)
+printarray: prints out contents of two arrays (brendan)
+printthree: uses a for loop to print out a string (benny)
 help: this command (anthony)
 exit: exit the shell (nathan)
 
